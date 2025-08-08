@@ -8,12 +8,18 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    proxy: {
+      // Proxy any /functions/* to your Supabase functions endpoint
+      "/functions": {
+        target: "https://kplsajfraxoymuntnbkd.supabase.co",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/functions/, "/functions"),
+      },
+    },
   },
-  plugins: [
-    react(),
-    mode === 'development' &&
-    componentTagger(),
-  ].filter(Boolean),
+  plugins: [react(), mode === "development" && componentTagger()].filter(
+    Boolean
+  ),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

@@ -1,6 +1,6 @@
-import { LeadCaptureForm } from './LeadCaptureForm';
-import { SuccessMessage } from './SuccessMessage';
-import { useLeadStore } from '@/lib/lead-store';
+import { LeadCaptureForm } from './LeadCaptureForm.tsx';
+import { SuccessMessage } from './SuccessMessage.tsx';
+import { useLeadStore } from '../lib/lead-store.ts';
 import { Rocket, Star, Users } from 'lucide-react';
 
 export const LeadCapturePage = () => {
